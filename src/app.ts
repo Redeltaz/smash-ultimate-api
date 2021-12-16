@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import { crudCharacter } from "./api/crud";
 
 dotenv.config();
 
@@ -9,4 +10,6 @@ const app = express();
 
 app.listen(PORT, async () => {
     console.log(`app runing on http://127.0.0.1:${PORT}.`);
+
+    crudCharacter.getMulti();
 }); 

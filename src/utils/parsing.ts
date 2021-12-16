@@ -3,7 +3,7 @@
  * without doublequotes on the keys, to use for neo4j requests 
  */
 export const objectToString = (object: Record<string, unknown>): string => {
-	const stringObject = JSON.stringify(object);
-	const parsedObject = stringObject.replace(/"([^"]+)":/g, "$1:");
-	return parsedObject;
+    const stringObject = JSON.stringify(object);
+    const parsedObject = stringObject.replace(/"([^"]+)":/g, "$1:");
+    return parsedObject;
 };
