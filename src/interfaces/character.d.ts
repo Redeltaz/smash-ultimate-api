@@ -1,3 +1,17 @@
+export interface CharacterDB {
+    id: number;
+    characterId: string;
+    name: string;
+    isDLC: boolean;
+    license: string;
+    images: {
+        icon: string;
+        portrait: string;
+    };
+    moves: Moves;
+    statistics: Statistics;
+}
+
 export interface Character {
     characterId: string;
     name: string;
@@ -8,6 +22,7 @@ export interface Character {
         portrait: string;
     };
     moves: Moves;
+    statistics: Statistics;
 }
 
 export interface Moves {
@@ -16,8 +31,6 @@ export interface Moves {
     specialAttacks: AttackContent[];
     grabsAndThrows: GrabThrowContent[];
     dodgesAndRolls: DodgeRollContent[];
-
-    statistics: Statistics;
 }
 
 export interface AttackContent {
@@ -101,30 +114,4 @@ export interface Statistics {
         roll: string;
         jump: string;
     }
-}
-
-export const isInstanceOfCharacter = (object: Record<string, unknown | Object>) => {
-    return (
-        "characterId" in object &&
-        typeof(object.characterId) === "string" &&
-        "name" in object &&
-        typeof(object.name) === "string" &&
-        "isDLC" in object &&
-        typeof(object.isDLC) === "boolean" &&
-        "images" in object &&
-        typeof(object.images.icon) === "string"
-
-    );
-};
-
-export interface Character {
-    characterId: string;
-    name: string;
-    isDLC: boolean;
-    license: string;
-    images: {
-        icon: string;
-        portrait: string;
-    };
-    moves: Moves;
 }

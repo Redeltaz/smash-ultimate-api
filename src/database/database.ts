@@ -26,10 +26,10 @@ class Database {
 
         this.authToken = neo4j.auth.basic(this.dbUsername, this.dbPassword);
 
-        this.openConnection();
+        this.__openConnection();
     }
 
-    private openConnection(): void {
+    private __openConnection(): void {
         this.driver = neo4j.driver(this.dbHost, this.authToken);
     }
 }
