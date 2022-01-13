@@ -1,5 +1,4 @@
-export interface CharacterDB {
-    id: number;
+export interface Character {
     characterId: string;
     name: string;
     isDLC: boolean;
@@ -12,17 +11,8 @@ export interface CharacterDB {
     statistics: Statistics;
 }
 
-export interface Character {
-    characterId: string;
-    name: string;
-    isDLC: boolean;
-    license: string;
-    images: {
-        icon: string;
-        portrait: string;
-    };
-    moves: Moves;
-    statistics: Statistics;
+export interface CharacterDB extends Character {
+    id: number;
 }
 
 export interface Moves {

@@ -13,24 +13,24 @@ const DB_PASSWORD = process.env.DB_PASSWORD as string;
 
 class Database {
     public driver: Driver;
-    private authToken: AuthToken;
+    private _authToken: AuthToken;
 
-    private readonly dbHost: string;
-    private readonly dbUsername: string;
-    private readonly dbPassword: string;
+    private readonly _dbHost: string;
+    private readonly _dbUsername: string;
+    private readonly _dbPassword: string;
 
     constructor(host: string, username: string, password: string) {
-        this.dbHost = host;
-        this.dbUsername = username;
-        this.dbPassword = password;
+        this._dbHost = host;
+        this._dbUsername = username;
+        this._dbPassword = password;
 
-        this.authToken = neo4j.auth.basic(this.dbUsername, this.dbPassword);
+        this._authToken = neo4j.auth.basic(this._dbUsername, this._dbPassword);
 
-        this.__openConnection();
+        this._openConnection();
     }
 
-    private __openConnection(): void {
-        this.driver = neo4j.driver(this.dbHost, this.authToken);
+    private _openConnection(): void {
+        this.driver = neo4j.driver(this._dbHost, this._authToken);
     }
 }
 
